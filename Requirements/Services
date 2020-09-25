@@ -1,0 +1,60 @@
+Services
+
+1. Get top shows by platform PlatformName
+GET: /topRating
+    queryParams: platformName(All), Count(default:20), language(All), Genre(All)
+  a. Returns list of ALL shows sorted by topRating
+  b. Response:
+  {
+        metadata:
+        webShows:[
+            {
+                name:"",
+                rating:float,
+                metadata:{}
+            },
+            {
+                
+            }
+        ] 
+    }
+2. GET: /{seriesName}
+{
+    metadata:
+    webShows: {
+        name:"",
+        rating:float,
+        metadata:{}
+    }
+}
+
+3. Post call to upvote, downvote, plain 
+PUT: /{showName}/{rating(1,0,-1)}
+{
+    success/failure
+}
+4. Add a web series
+POST: "/"
+
+
+
+Model:
+1. Name
+2. Language:[]
+3. Genre: ""
+4. Rating 
+{
+    Recomend: +1
+    UnSure: 0
+    UnSatisfied: -1
+    Percentage: Recomend/ (Recomend + Unsure + UnSatisfied)
+}
+5. Platform:[""]
+6. releaseTime: DateTime
+7. Cast:{
+    Actor: 
+    Actress:
+    Director:
+    Producer:
+}
+
